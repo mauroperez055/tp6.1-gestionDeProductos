@@ -3,6 +3,11 @@ package Vistas;
 
 import Clases.Producto;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class VistaGestionProductos extends javax.swing.JFrame {
     
@@ -14,6 +19,8 @@ public class VistaGestionProductos extends javax.swing.JFrame {
     
     public VistaGestionProductos() {
         initComponents();
+        DefaultTableModel modelo = (DefaultTableModel) tblProductos.getModel();
+        borraFilasTabla(modelo);
         for (String cat : catArray) {
             categorias.add(cat);
         }
@@ -30,7 +37,7 @@ public class VistaGestionProductos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         escritorio = new javax.swing.JDesktopPane();
-        jPanel2 = new javax.swing.JPanel();
+        pnlDatos = new javax.swing.JPanel();
         btnAgregar = new javax.swing.JButton();
         lblCategoria = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
@@ -71,52 +78,50 @@ public class VistaGestionProductos extends javax.swing.JFrame {
 
         cboCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
+        pnlDatos.setLayout(pnlDatosLayout);
+        pnlDatosLayout.setHorizontalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlDatosLayout.createSequentialGroup()
                             .addComponent(lblCategoria)
                             .addGap(18, 18, 18)
                             .addComponent(cboCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(pnlDatosLayout.createSequentialGroup()
                             .addComponent(lblNombre)
                             .addGap(26, 26, 26)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
                         .addComponent(lblPrecio)
                         .addGap(196, 196, 196)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pnlDatosLayout.setVerticalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCategoria)
                     .addComponent(cboCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnAgregar)
-                        .addGap(26, 42, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAgregar)
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNombre)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPrecio)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         tblProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -145,7 +150,7 @@ public class VistaGestionProductos extends javax.swing.JFrame {
         lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/icons8-producto-50.png"))); // NOI18N
         lblTitulo.setText("Gestión de Productos");
 
-        escritorio.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(pnlDatos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(lblTitulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -161,7 +166,7 @@ public class VistaGestionProductos extends javax.swing.JFrame {
                     .addGroup(escritorioLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE))))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
@@ -171,7 +176,7 @@ public class VistaGestionProductos extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -210,16 +215,94 @@ public class VistaGestionProductos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+        if (!validarCamposVacios(pnlDatos)) {
+            return;
+        }
+        
+        DefaultTableModel modelo = (DefaultTableModel) tblProductos.getModel();
+        borraFilasTabla(modelo);
+        
         String nombre = txtNombre.getText();
+        
+        if (!validarPrecio(txtPrecio)) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar un precio válido.", "Atención!", JOptionPane.ERROR_MESSAGE);
+            txtPrecio.setText("");
+            return;
+        }
+        
         Double precio = Double.parseDouble(txtPrecio.getText());
         String categoria = cboCategorias.getSelectedItem().toString();
         
         Producto prod = new Producto(nombre, precio, categoria);
-        System.out.println(prod.toString());
+        System.out.println(prod.toString()); // -> sirve para controlar la creacion del producto
         productos.add(prod);
+        limpiarCampos(pnlDatos);
+        
+        for (Producto p : productos) {
+            modelo.addRow(new Object[] {
+                p.getNombre(),
+                p.getCategoria(),
+                p.getPrecio()
+            });
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    public static void limpiarCampos(JPanel  jPanel) {
+        JComboBox combo = null;
+        for (int i = 0; i < jPanel.getComponents().length; i++) {
+            if (jPanel.getComponents()[i] instanceof JTextField) {
+                JTextField caja = (JTextField) jPanel.getComponents()[i];
+                caja.setText("");
+            }
+            
+            if (jPanel.getComponents()[i] instanceof JComboBox) {
+                combo = (JComboBox) jPanel.getComponents()[i];
+                combo.setSelectedIndex(-1);
+            }
+        }
+    }
+    
+    public static boolean validarCamposVacios(JPanel jPanel) {
+        
+        for (int i = 0; i < jPanel.getComponents().length; i++) {
+            
+            if (jPanel.getComponents()[i] instanceof JTextField) {
+                JTextField caja = (JTextField) jPanel.getComponents()[i];
+                if (caja.getText().trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Debe completar todos los campos.", "Atención!", JOptionPane.WARNING_MESSAGE);
+                    return false;
+                }
+            }
+            
+            if (jPanel.getComponents()[i] instanceof JComboBox) {
+                JComboBox combo = (JComboBox) jPanel.getComponents()[i];
+                if (combo.getSelectedItem() == null || combo.getSelectedItem().toString().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar una categoría.", "Atención!", JOptionPane.WARNING_MESSAGE);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    public static void borraFilasTabla(DefaultTableModel modelo) {
+        int filas = modelo.getRowCount() -1;
+        for (int i = filas; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+    }
+    
+    public static boolean validarPrecio(JTextField jText) {
+        String precio = jText.getText();
+        
+        if (!precio.matches("^(0|[1-9]\\d*)(\\.\\d+)?$")) {
+            return false;
+        }
+        
+        return true;
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -247,12 +330,12 @@ public class VistaGestionProductos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboCategorias;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnlDatos;
     private javax.swing.JTable tblProductos;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;

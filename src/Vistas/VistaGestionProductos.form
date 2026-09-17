@@ -81,7 +81,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jPanel2" max="32767" attributes="0"/>
+                                  <Component id="pnlDatos" max="32767" attributes="0"/>
                                   <Component id="jScrollPane1" pref="512" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -96,7 +96,7 @@
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="lblTitulo" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="pnlDatos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="211" max="-2" attributes="0"/>
                       <EmptySpace pref="42" max="32767" attributes="0"/>
@@ -105,7 +105,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel2">
+            <Container class="javax.swing.JPanel" name="pnlDatos">
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -149,10 +149,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="26" pref="42" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="btnAgregar" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblNombre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -163,9 +160,9 @@
                                       <Component id="lblPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace pref="32" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
