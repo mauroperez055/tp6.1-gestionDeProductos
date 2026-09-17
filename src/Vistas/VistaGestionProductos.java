@@ -54,6 +54,11 @@ public class VistaGestionProductos extends javax.swing.JFrame {
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/icons8-carrito-de-compras-48.png"))); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         lblCategoria.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCategoria.setText("Categoría:");
@@ -203,6 +208,17 @@ public class VistaGestionProductos extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        String nombre = txtNombre.getText();
+        Double precio = Double.parseDouble(txtPrecio.getText());
+        String categoria = cboCategorias.getSelectedItem().toString();
+        
+        Producto prod = new Producto(nombre, precio, categoria);
+        System.out.println(prod.toString());
+        productos.add(prod);
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
